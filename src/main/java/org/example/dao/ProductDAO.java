@@ -3,6 +3,7 @@ package org.example.dao;
 import org.example.entity.Product;
 import org.hibernate.Session;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class ProductDAO {
@@ -46,7 +47,9 @@ public class ProductDAO {
         return session.createQuery("select p from Product p where price < 100",Product.class).getResultList();
     }
     public List<Product> getDate() {
-        return session.createQuery("select p from Product p where puchaseDate between 2009-6-1 and 2025-2-1",Product.class).getResultList();
+        return session.createQuery("select p from Product p where puchaseDate BETWEEN :start AND :end",Product.class).getResultList();
+        LocalDate start = LocalDate.of(2019 , 1 , 1);
+        LocalDate end = LocalDate.now();
     }
 
 }

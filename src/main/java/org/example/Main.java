@@ -46,8 +46,8 @@ public class Main {
 //        productDAO.update(productDAO.get(1));
 //        System.out.println(productDAO.get(1));
 
-        Product product5 = Product.builder().brand("logitech").reference("Lg1230").puchaseDate(LocalDate.ofEpochDay(2020- 5 -2)).price(49).stock(2).build();
-        Product product6 = Product.builder().brand("phillips").reference("p12536").puchaseDate(LocalDate.ofEpochDay(2010- 6 -9)).price(99).stock(4).build();
+        Product product5 = Product.builder().brand("logitech").reference("Lg1230").puchaseDate(LocalDate.of(2020,5,1)).price(49).stock(2).build();
+        Product product6 = Product.builder().brand("phillips").reference("p12536").puchaseDate(LocalDate.of(2010, 6 ,9)).price(99).stock(4).build();
 
         productDAO.save(product5);
         productDAO.save(product6);
