@@ -3,7 +3,9 @@ package org.example;
 import org.example.dao.ProductDAO;
 import org.example.entity.Product;
 import org.example.util.SessionFactorySingleton;
+import org.hibernate.Session;
 
+import javax.management.Query;
 import java.time.LocalDate;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -24,25 +26,40 @@ public class Main {
         productDAO.save(product3);
         productDAO.save(product4);
 
+//        System.out.println("tout les products");
+//        System.out.println(productDAO.get());
+//
+//        System.out.println("product 2");
+//        productDAO.get(2);
+//        System.out.println(productDAO.get(2));
+//
+//        System.out.println("suppression du product id - 3");
+//        productDAO.delete(productDAO.get(3));
+//
+//        System.out.println(productDAO.get());
+//
+//        System.out.println("modif product id - 1");
+//
+//
+//        productDAO.get(1).setBrand("New brand");
+//
+//        productDAO.update(productDAO.get(1));
+//        System.out.println(productDAO.get(1));
+
+        Product product5 = Product.builder().brand("logitech").reference("Lg1230").puchaseDate(LocalDate.ofEpochDay(2020- 5 -2)).price(49).stock(2).build();
+        Product product6 = Product.builder().brand("phillips").reference("p12536").puchaseDate(LocalDate.ofEpochDay(2010- 6 -9)).price(99).stock(4).build();
+
+        productDAO.save(product5);
+        productDAO.save(product6);
         System.out.println("tout les products");
         System.out.println(productDAO.get());
 
-        System.out.println("product 2");
-        productDAO.get(2);
-        System.out.println(productDAO.get(2));
 
-        System.out.println("suppression du product id - 3");
-        productDAO.delete(productDAO.get(3));
+        System.out.println("tout les products a - de 100€");
+        System.out.println(productDAO.get100());
 
-        System.out.println(productDAO.get());
-
-        System.out.println("modif product id - 1");
-
-
-        productDAO.get(1).setBrand("New brand");
-
-        productDAO.update(productDAO.get(1));
-        System.out.println(productDAO.get(1));
+        System.out.println("tout les products entre now et 2009");
+        System.out.println(productDAO.getDate());
 
     }
 }

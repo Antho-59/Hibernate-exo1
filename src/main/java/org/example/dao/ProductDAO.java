@@ -40,6 +40,13 @@ public class ProductDAO {
 
     public List<Product> get() {
         return session.createQuery("select p from Product p",Product.class).getResultList();
+
+    }
+    public List<Product> get100() {
+        return session.createQuery("select p from Product p where price < 100",Product.class).getResultList();
+    }
+    public List<Product> getDate() {
+        return session.createQuery("select p from Product p where puchaseDate between 2009-6-1 and 2025-2-1",Product.class).getResultList();
     }
 
 }
