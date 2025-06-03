@@ -58,7 +58,7 @@ public class Main {
         System.out.println("tout les products a - de 100€");
         System.out.println(productDAO.get100());
 
-        System.out.println("tout les products entre now et 2009");
+        System.out.println("tout les products entre now et 2010");
         System.out.println(productDAO.getDate());
 
     }

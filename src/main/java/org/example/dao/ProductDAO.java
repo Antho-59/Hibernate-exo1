@@ -1,8 +1,10 @@
 package org.example.dao;
 
+import com.google.protobuf.compiler.PluginProtos;
 import org.example.entity.Product;
 import org.hibernate.Session;
 
+import javax.persistence.TypedQuery;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -47,9 +49,10 @@ public class ProductDAO {
         return session.createQuery("select p from Product p where price < 100",Product.class).getResultList();
     }
     public List<Product> getDate() {
-        return session.createQuery("select p from Product p where puchaseDate BETWEEN :start AND :end",Product.class).getResultList();
-        LocalDate start = LocalDate.of(2019 , 1 , 1);
-        LocalDate end = LocalDate.now();
+       TypedQuery<Product> query = session.createQuery("select p from Product p where puchaseDate BETWEEN :start AND :end",Product.class);
+        query.setParameter("start", LocalDate.of(2010, 1, 1));
+       query.setParameter("end", LocalDate.of(2025, 1, 1));
+        return query.getResultList();
     }
 
 }
