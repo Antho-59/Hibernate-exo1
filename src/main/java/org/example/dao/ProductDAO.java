@@ -70,9 +70,12 @@ public class ProductDAO {
     }
 
     public  List<Product> DeleteBrand(String brand) {
+        session.beginTransaction();
         TypedQuery<Product> query = session.createQuery("delete from Product p where  brand = :brand",Product.class);
         query.setParameter("brand", brand);
+        session.getTransaction().commit();
         return query.getResultList();
+
 
     }
 

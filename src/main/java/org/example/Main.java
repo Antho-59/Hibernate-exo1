@@ -103,6 +103,16 @@ public class Main {
 
 
 // p2 q2 -- pas réussi
+double totalPrice;
+int nbePduit;
+
+        System.out.println("connaitre le prix moyen de tout les produits");
+        List<Product> productsAll = productDAO.get();
+        for (Product p : productsAll) {
+
+
+        }
+
 
         // p2 q3
 
