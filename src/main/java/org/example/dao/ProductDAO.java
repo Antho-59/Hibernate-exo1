@@ -48,11 +48,33 @@ public class ProductDAO {
     public List<Product> get100() {
         return session.createQuery("select p from Product p where price < 100",Product.class).getResultList();
     }
-    public List<Product> getDate() {
+    public List<Product> getDate(LocalDate start , LocalDate end) {
        TypedQuery<Product> query = session.createQuery("select p from Product p where puchaseDate BETWEEN :start AND :end",Product.class);
-        query.setParameter("start", LocalDate.of(2010, 1, 1));
-       query.setParameter("end", LocalDate.of(2025, 1, 1));
+        query.setParameter("start", start);
+       query.setParameter("end", end);
         return query.getResultList();
     }
+
+
+    public List<Product> getrefWhenStock(int stockNeeded) {
+        TypedQuery<Product> query = session.createQuery("select p from Product p where  stock < :stockNeeded",Product.class);
+        query.setParameter("stockNeeded", stockNeeded);
+        return query.getResultList();
+    }
+
+    public List<Product> getBrand(String brand) {
+        TypedQuery<Product> query = session.createQuery("select p from Product p where  brand = :brand",Product.class);
+        query.setParameter("brand", brand);
+        return query.getResultList();
+
+    }
+
+    public  List<Product> DeleteBrand(String brand) {
+        TypedQuery<Product> query = session.createQuery("delete from Product p where  brand = :brand",Product.class);
+        query.setParameter("brand", brand);
+        return query.getResultList();
+
+    }
+
 
 }

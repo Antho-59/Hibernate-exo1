@@ -7,6 +7,8 @@ import org.hibernate.Session;
 
 import javax.management.Query;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -58,8 +60,71 @@ public class Main {
         System.out.println("tout les products a - de 100€");
         System.out.println(productDAO.get100());
 
-        System.out.println("tout les products entre now et 2010");
-        System.out.println(productDAO.getDate());
+       // System.out.println("tout les products entre now et 2010");
+        //System.out.println(productDAO.getDate());
+
+// p1 Q1
+//        System.out.println("choix des dates entre les quelles trouver les articles");
+
+        Scanner scanner = new Scanner(System.in);
+//
+//        System.out.print("Entrez la date de début (YYYY-MM-DD) : ");
+//        String startDateStr = scanner.nextLine();
+//
+//        System.out.print("Entrez la date de fin (YYYY-MM-DD) : ");
+//        String endDateStr = scanner.nextLine();
+//        LocalDate startDate = LocalDate.parse(startDateStr);
+//        LocalDate endDate = LocalDate.parse(endDateStr);
+//
+//        System.out.println(productDAO.getDate(startDate,endDate));
+
+        // p2 q2
+
+//System.out.println("trouver les produits dont le stock est inférieur à X ");
+//int stock = scanner.nextInt();
+//        System.out.println(productDAO.getrefWhenStock(stock));
+//        List<Product> products = productDAO.getrefWhenStock(stock);
+//        for (Product p : products) {
+//            System.out.println("Produit ID : " + p.getId() +
+//                    ", Référence : " + p.getReference());
+//        }
+
+        // p2 Q1
+//        System.out.println("\n trouver les produits dont la marque est ##### ");
+//        System.out.println("Entrez la marque : ");
+//        String brand = scanner.nextLine();
+//        //System.out.println(productDAO.getBrand(brand));
+//        List<Product> products1 = productDAO.getBrand(brand);
+//            for (Product p : products1) {
+//                System.out.println("Produit ID : " + p.getId() +
+//                        ", Référence : " + p.getReference() +
+//                        ", Stock : " + p.getStock());
+//            }
+
+
+// p2 q2 -- pas réussi
+
+        // p2 q3
+
+        System.out.println("\n trouver les produits d'une marque choisie ");
+            System.out.println("Entrez la marque : ");
+            String brand1 = scanner.nextLine();
+            List<Product> products2 = productDAO.getBrand(brand1);
+        System.out.println(products2);
+
+
+        // p2 Q4
+        System.out.println("\n supprimer les produits d'une marque choisie ");
+        System.out.println("Entrez la marque : ");
+        String brand2 = scanner.nextLine();
+        productDAO.DeleteBrand(brand2);
+
+
+
+
 
     }
+
+
+
 }
